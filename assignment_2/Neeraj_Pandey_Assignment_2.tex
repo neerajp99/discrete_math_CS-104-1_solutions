@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+
+
+\title{ASSIGNMENT 2}
+\author{Neeraj Pandey }
+\date{Discrete Mathematics}
+
+
+
+\begin{document}
+
+\maketitle
+\textbf{Q1.} Show that among $n + 1$ positive integers of which is greater than $2n$, there are two that are relatively prime. (Two numbers are said to be relatively prime if their greatest common divisor is 1).
+\newline
+\textbf{Solution: } Let us proof by using a Lemma,
+\newline
+\textbf{Lemma: } Every consecutive positive integer is prime. Proof by contradiction says that n and n+1 are positive integers such that prime number divides both of them.
+\newline
+\textbf{Contradiction:} k | 1, but k $>$ 1
+By lemma stated above, divide the $2n$ numbers into the following sets,
+\newline
+\[ \small\{ 1, 2\small\}\]\\
+\[ \small\{ 3, 4\small\}\]\\
+\[ \small\{ 5, 6\small\}\]\\
+\[ \small\{ ...\small\}\]\\
+\[ \small\{ ... \small\}\]\\
+\[ \small\{ 2n - 1, 2n\small\}\]
+\newline
+As there are n such sets and every number $\leq$ 2n, there are $n+1$ numbers and $n$ sets. By Pigeonhole Principle there is atleast one set which has atleat 2 elements. As elements of this set are consecutive positive integers, therefore by Lemma they are relatively prime.
+\newpage
+\begin{flushleft}
+\textbf{Q2.}  Suppose that we have n natural numbers none of which is greater than $2n$ such that the least common multiple of any two is greater than $2n$. Show that all n numbers are greater than \(\frac{2n}{3}\).
+\end{flushleft}
+\begin{flushleft}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\textbf{Solution:} Let us proof this by contradiction:
+\newline
+\newline
+ Let's say that there is a number $a_{1}$ among all the chosen numbers \(\ni\) $ a_{1}$\textless \( 2_{n}\) and the rest of the numbers as $a_{i}$\textgreater \(\frac{2n}{3}\).
+
+We can see that following property from the above:
+\[ 2a_{1} < 3a_{1} < 2_{n}\]\\
+Take a set, S = \small\{ $2a_{1}, 3a_{1}, a_{2} .... a_{n}$ \small\}
+\newline
+here, we will take a helping theorem (lemma) \\
+\textbf{Lemma 1: }There are 2 positive integers among n + 1 which divides the other and is greater than $2n$.\\
+So, we can have the following sets:
+\[ \small\{ 1, 2, 4, 8 ...\small\}\]
+\[....\]
+\[....\]
+\[\small\{2n-1, 4n-2, 8n-4 ...\small\}\]
+$\implies$ These are the following properties of the above sets:\\
+\textbf{1.} There are 'n' sets in total.\\
+\textbf{2. }There are 2 numbers from a set which divides one from the other.\\
+\textbf{3. }Numbers smaller than 2n fall under these sets.
+\newline
+- From the lemma used above, there are 2 numbers that one divides from the other. As, $2a_{1}$
+/ $3a_{1}$ is not an integer, we can conclude that there are 2 numbers $a_{i}$ and $a_{k}$ \(\ni\) $a_{k} > a_{i}$ and $a_{i}$ divides $a_{k}$.
+\newline
+Therfore, if $a_{1} < 2n$, there there exist 2 numbers among \small\{ $a_{1}, a_{2}....a_{n}$ \small\} and their LCM is smaller than 3.
+Hence, proved by Contradiction.
+
+
+\end{flushleft}
+
+
+\end{document}

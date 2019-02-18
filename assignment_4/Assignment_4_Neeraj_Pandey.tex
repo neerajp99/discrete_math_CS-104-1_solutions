@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 4}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+\maketitle
+\begin{flushleft}
+\textbf{Q1. } Can a $9$ x $8$ rectangle be covered by $1$ x $6$ rectangles? Justify your answer.
+\newline
+\newline
+\textbf{Solution: } Let us make a $9$ x $8$ rectangle with blue color.
+
+\[\includegraphics{image}\]
+\newline
+\begin{itemize}
+    \item We can represent the colors in the form of a vector:
+        \[\begin{bmatrix}\textcolor{blue}{BLUE}\\\textcolor{red}{RED}\end{bmatrix}\]
+    \item From the image, we can see that the vector we have is:
+        \[\begin{bmatrix}56\\16\end{bmatrix}\]
+        where $56$ belongs to \textcolor{blue}{Blue} color boxes and $16$ belongs \textcolor{red}{Red} color boxes.
+    \item If we have to place $1$ x $6$ rectangles over the $9$ x $8$ rectangles, there are only two patterns:
+        \[\begin{bmatrix}\textcolor{blue}{3}\\\textcolor{red}{3}\end{bmatrix}\]
+        \[OR\]
+        \[\begin{bmatrix}\textcolor{blue}{3}6\\\textcolor{red}{0}\end{bmatrix}\]
+    \item Now, we can have two different patterns rectangles as \textbf{X} and \textbf{Y} respectively. if this is true, then it should cover all the $9$ x $8$ rectangle.
+    \item So, the two matrix should be equal to the $\begin{bmatrix} \textcolor{blue}{56}\\\textcolor{red}{16}\end{bmatrix}$:
+    \[\textbf{X}\begin{bmatrix} \textcolor{blue}{3}\\\textcolor{red}{3}\end{bmatrix} + \textbf{Y}\begin{bmatrix} \textcolor{blue}{3}\\\textcolor{red}{0}\end{bmatrix}  \implies \begin{bmatrix}6\textbf{X} + 3\textbf{Y} \\ 3\textbf{Y} \end{bmatrix} = \begin{bmatrix} 56\\16 \end{bmatrix} \]
+    \begin{center}
+         which means that, $3\textbf{Y}$ should be equal to $16$
+        \[But, 3\textbf{Y} \neq \textbf{16} \]
+
+        \textbf{This contradicts the above assumption and therefore, $1$ x $6$ rectangle cannot cover the $9$ x $8$ rectangle.}
+    \end{center}
+
+
+
+\end{itemize}
+
+
+
+\end{flushleft}
+
+\newpage
+\begin{flushleft}
+\textbf{Q2. } Consider the figure below:
+\[\includegraphics{q2}\]
+\newline
+A $10$ x $8$ rectangular floor (middle part in the figure) was made up of different type of tiles which is evident from the figure. After some years, some of these tiles got smashed (uncoloured region inside the floor). The original tiles which had covered uncoloured region of the floor are shown at the right side of the floor. But, these tiles are not available now. Instead, four T-tetromino tiles are available (shown in red colour) now.
+Can the floor be covered up by rearranging the remaining tiles along with four T-tetromino tiles?
+\newline
+\newline
+\textbf{Solution:} Below is the image as the solution:
+\[\includegraphics{s2}\]
+\end{flushleft}
+\end{document}

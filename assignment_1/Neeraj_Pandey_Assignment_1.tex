@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+
+\title{ASSIGNMENT 1}
+\author{Neeraj Pandey }
+\date{Discrete Mathematics}
+\begin{document}
+
+\maketitle
+\begin {flushleft}
+\textbf{Q1.}  Show that \(2^n > n^5+1\) for all \(n\geq23\)
+\end {flushleft}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\begin {flushleft}
+\textbf{Solution: }Let's take the base case as \(n=23\)
+\newline
+\newline
+\tab[1.5cm]\textbf{\textit{Base Case:}}
+\(2^{23} - (23^5+1) = 1952264 > 0 \implies P(23)\) \\
+\tab[1.5cm]\textbf{\textit{Inductive Step:}} Assume $P(n=k)$. So,
+\begin{equation}
+\bigskip2^k>k^5+1,  \tab[1cm] \forall\enspace k\geq23\ \label{1}
+\end{equation}
+\tab[1.5cm]Let's take the inequality to check if it's true or not,
+\begin{align*}
+2k^5&>(k+1)^5\\
+\implies 2&>(1+\frac{1}{k})^5\\
+\newline
+% \tab[1.5cm] \implies k &> \dfrac{1}{2^{1/5} - 1}
+% \newline
+% \tab[1.5cm]\approx 6.725
+\end{align*} 
+\end{flushleft}
+\begin{flushleft}
+\tab[1.5cm]Put $k=23$ in the above inequality we have,
+\begin{align*}
+(1+\frac{1}{23})^5\approx1.2371<2\\
+\implies (1+\frac{1}{k})^5<2\\
+\implies (k+1)^5<2k^5, \quad \forall\enspace k\geq23\\ 
+\end{align*}
+\begin{equation}
+\label{2}
+\end{equation}
+
+\tab[1.5cm]Now take $2^{k+1}$,
+
+\begin{align*}
+2^{k+1}=2(2^k)&\quad>\quad2(k^5+1)  ,from\quad (1)\\
+&\quad>\quad2(k^5)+1\\
+&\quad>\quad(k+1)^5+1  ,from \quad (2)\\
+&\implies P(n=k+1)
+\end{align*}
+\\\tab[1.5cm]Therefore, by \large{\textit{Induction}} method $P(n)$ is true for all $n\geq 23$ 
+\end{flushleft}
+
+\newpage
+
+\begin {flushleft}
+\textbf{Q2.} A Fibonacci sequence \(F_{n}\) satisfies the recurrence relation \( F_{n} = F_{n} - 1 + F_{n} - 2 \)  for \(n \geq 3\), where \(F_{1} = 1\)
+and \(F_{2} = 1\). Prove by mathematical induction that for all \(n \geq 1\),
+\newline
+\newline
+\[F_{n} = \frac{1}{\sqrt{5}}\Bigg[\Bigg( \frac{1 + \sqrt{5}}{2}\Bigg)^n - \Bigg( \frac{1 - \sqrt{5}}{2} \Bigg)^n  \Bigg]\].
+
+\textbf{Solution: }
+\newline
+\newline
+\tab[1.5cm]\textbf{Base Case: }
+\newline
+\[F_{1} = \frac{1}{\sqrt{5}} \Bigg\{ \Bigg( \frac{1+ \sqrt{5}}{2}\Bigg) - \Bigg( \frac{1- \sqrt{5}}{2}\Bigg)  \Bigg\}\]\\
+\[= \Bigg( \frac{2\sqrt{5}}{2}\Bigg) \frac{1}{\sqrt{5}} = 1 \implies P(1)\]
+\newline
+\tab[1.5cm]\textbf{Inductive Step: }\\
+\tab[1.5cm]Assume $P(n = 1), P(n = 2) ......... P(n = k - 1), P(n = k)$ 
+\newline
+\newline
+\tab[3.5cm]{\textit{Now,}} \[ F_{k + 1} = F_{k} + F{k - 1}\]
+\tab[3.5cm] {\textit{or,}} \[F_{k + 1} = \frac{1}{\sqrt{5}} \Bigg\{ \Bigg( \frac{1 + \sqrt{5}}{2}\Bigg)^k - \Bigg( \frac{1 - \sqrt{5}}{2}  \Bigg)^k \Bigg\} + \frac{1}{\sqrt{5}} \Bigg\{ \Bigg( \frac{1 + \sqrt{5}}{2}\Bigg)^{k - 1} - \Bigg( \frac{1 - \sqrt{5}}{2}  \Bigg)^{k - 1} \Bigg\} \]
+\newline
+\[ = \frac{1}{\sqrt{5}} \Bigg[ \bigg( \frac{1 + \sqrt{5}}{2} \bigg)^ {k - 1} \bigg\{ 1 + \frac{1 + \sqrt{5}}{2}\bigg\} - \bigg( \frac{1 - \sqrt{5}}{2}\bigg)^{k - 1} \bigg\{ 1 + \frac{1 - \sqrt{5}}{2} \bigg\} \Bigg]\]
+\newline
+\[ = \frac{1}{\sqrt{5}} \Bigg[ \bigg(\frac{1 + \sqrt{5}}{2} \bigg)^{k - 1} \bigg\{ \frac{1}{2} \bigg(   \frac{6 + 2\sqrt{5}}{2} \bigg) \bigg\} - \bigg(\frac{1 - \sqrt{5}}{2} \bigg)^{k - 1} \bigg\{ \frac{1}{2} \bigg(   \frac{6 - 2\sqrt{5}}{2} \bigg) \bigg\} \Bigg] \]
+\newline
+\[ = \frac{1}{\sqrt{5}} \Bigg\{ \Bigg( \bigg( \frac{1 + \sqrt{5}}{2} \bigg)^{k - 1} \bigg( \frac{1 + \sqrt{5}}{2} \bigg)^2 \Bigg)  - \Bigg( \bigg( \frac{1 - \sqrt{5}}{2} \bigg)^{k - 1} \bigg( \frac{1 - \sqrt{5}}{2} \bigg)^2 \Bigg) \Bigg\} \]
+\newline
+\[ = \frac{1}{\sqrt{5}} \Bigg[ \bigg( \frac{1 + \sqrt{5}}{2} \bigg) ^ {k + 1} - \bigg( \frac{1 - \sqrt{5}}{2} \bigg) ^ {k + 1} \bigg] \]
+\newline
+\[\implies P(K = n + 1) \]
+\newline
+\newline
+\[Hence, proved.\]
+
+
+\end {flushleft}
+\end{document}
+

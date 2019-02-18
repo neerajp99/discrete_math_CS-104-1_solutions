@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 3}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+\maketitle
+\begin{flushleft}
+\textbf{Q1. } A dragon has 100 heads. A knight can cut off $15, 17, 20$ or $5$ heads with one blow of his sword. In each of these cases, $24, 2, 14,$ or $17$ new heads grow on its shoulders respectively. If all heads are blown off, the dragon dies. Can the dragon ever die? (Assume that if all heads are blown off, no new head will
+grow).
+\newline
+\newline
+\textbf{Solution: } Difference between the head cut and head grown in each cut: \\
+\[ \mid 15 - 24 \mid = 9\]
+\[ \mid 17 - 2 \mid = 15\]
+\[ \mid 20 - 14 \mid = 6\]
+\[ \mid 5 - 17 \mid = 1\]
+\newline
+\begin{itemize}
+  \item All the differences are a multiple of $3$ which can be written as $3k$, where $k$ $\epsilon$ $N$.
+  \item So, whatever is the cut, the difference will change in a multiple of $3$.
+  \item As there are 100 heads,
+  \[100 = 3k + 1, k = 33 \quad \epsilon \quad N \]
+  And the remainder is 1. So, whatever is the cut, it will never completely cut 100 heads. Therefore, the dragon never dies.
+ 
+\end{itemize}
+\end{flushleft}
+\newpage
+\begin{flushleft}
+\textbf{Q2. } Many handshakes are exchanged at a big international congress. We call a person an odd person if he has exchanged an odd number of handshakes. Otherwise he will be called an even person. Show that, at any moment, there is an even number of odd persons.
+\newline
+\newline
+\textbf{Solution: } Let us take the total handshakes as \textbf{X}.
+\newline
+The cases that occur for the problem are as follows:
+
+\newcommand\tab[1][0.1cm]{\hspace*{#1}}
+    2 people are needed for a handshake. Invariant here is $2$. This is because when two people shake hands, total number of hand shakes are increased by 2 which is even. Let number with even numbers of handshakes is \textbf{a} and number of odd numbers of handshakes \textbf{b}.
+    \newline
+    \newline
+    If \textbf{a} is even or odd, the total number of handshakes will be even\tab[0.1cm]\textbf{say x}: 
+    $As \tab[0.3cm]even * even = even and  even * odd = even$
+    \newline
+    \newline
+    If \textbf{b} is odd, total number of individual handshakes will be even: $   odd * odd = odd$
+    \newline
+    \newline
+    If \textbf{b} is even, total number of individual handshakes will be even\tab[0.1cm]\textbf{say y}: $odd * even = even$
+    \newline
+    \newline
+    Also, \(a + b = X\). So, we know that \textbf{X} and \textbf{x} is always even. So, \textbf{y} can only be even.
+So, there are even number of odd people.
+\end{flushleft}
+
+
+\end{document}
