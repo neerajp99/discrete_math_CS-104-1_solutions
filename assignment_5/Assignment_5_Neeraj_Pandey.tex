@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 5}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+\textbf{Q1(a): } In a plane, $2n + 1$ persons are placed in such a manner that their mutual distances are distinct. Then everybody shoots their nearest neighbour. Is it true that at least one person survives? Justify your answer.
+\newline
+\newline
+\textbf{Solution: } $2n + 1$ means that that there are odd number of people. As, mutual distance between $2n + 1$ people is distinct, which means that the distance between any pair of people is not equal. We can take a condition which is shown in the image below:
+\[\includegraphics{q1a}\]
+
+In the above shown image, there will exist two points, say 1 and 2 whose distance whose mutual distance will be least compared with the others. As every person shoots its nearest neighbour, these 2 people will shoot each other since no other pair has a distance smaller than that. When 1 and 2 shoots each other, then there is always a pair with the greatest distance and one person will be left and will never be shot by anyone. Therefore, one person will always survive at the end.
+
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\textbf{Q1(b): } In a plane, $2n$ for $n \geq 5$ persons are placed in such a manner that their mutual distances are distinct. Then everybody shoots their nearest neighbour. Is it true that at least one person survives? Justify your answer.
+\newline
+\newline
+\textbf{Solution: } $2n$ people means that there are even number of people and the distance between any of the pair is not equal. As every person shoots every other nearest person. We can take an example of 6 people(even), which is shown in the image below:
+
+\[\includegraphics{q1b}\]
+
+From the above image, it's clear that the number of people on the plane is always even and greater than 5. There can be a case where every point could have a point that shares the pair with the smallest distance. As this distance between every pair is the smallest, each person will shoot the person who is in a pair with it. Therefore, no one survives.
+
+\end{flushleft}
+\begin{flushleft}
+\textbf{Q2: }Let there be $n \geq 3$ points on a plane such that not all are collinear. Does there exist any circle which pass through three of the points but does not contain any other points strictly inside it? Justify your answer.
+\newline
+\newline
+\textbf{Solution: }
+\[\includegraphics{q2}\]
+There exist a law which states that only one circle can pass through three non- collinear points, according to the Circle Theorem. In the image shown below, we can figure out the mutual distance between them using the Extremal principle. By reducing it, we will see that there will always exist a circle that can be formed passing 3 points where no other point is present inside the newly formed circle.
+
+
+\end{flushleft}
+
+
+\end{document}
