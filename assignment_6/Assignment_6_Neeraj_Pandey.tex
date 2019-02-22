@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 6}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+\textbf{Q1: } Prove that $4^n + n^4$ is not a prime for $n > 1$.
+\newline
+\newline
+\textbf{Solution: } \begin{itemize}
+
+    \item If n is even, then the equation is even: \[4^n + n^4 = 4^2x + (2x)^ 4 \in 2x = n \]
+        Therefore, it is not even
+    \item if n is odd, $n = 2x + 1$,
+    \[= 4^n + n^4\]
+    \[= 4^{(2x +1)} + n^4\]
+    \[= 4^{(2x)}\cdot4 + n^4\]
+    \[= 4{(2^x)}^{4} + n^4 \]
+    \[= {(2{(2^x)}^2)^2} + {4n^{2}{(2^x)}^2} - {4n^2{(2^x)}^2}\]
+    \[= {(n^2 + 2 \cdot {(2^x)})^2} - {(2n \cdot 2^x)^2}\]
+    \[= {(n^2 + 2 \cdot {(2^x)} + (2n \cdot 2^x)) } \cdot {(n^2 + 2 \cdot {(2^x)} - (2n \cdot 2^x)) }\]
+    \[= {((n + 2^x)^2 + 4^x) \cdot ((n - 2^x)^2 + 4^k)}\]
+    When n is odd, the equation $4^n + n^4$ is not prime because it can be expressed as a product of more than two factors and 2 or more than 2 are greater than 1.
+    \newline
+    Hence, proved.
+
+\end{itemize}
+
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\textbf{Q2: } Let $a, b, c, d$ are integers such that $a \neq c$. Suppose $a - c | ab + c d$. Is it true that $a − c | ad + b c$? Justify your answer.
+\newline
+\newline
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\textbf{Solution: } From the given details, \[(a - c)x = ab + c d \tab[0.2cm]for\tab[0.2cm] x\in Z  \]
+\[= (a b + c d) - (a d + b c)\]
+\[= a b + c d - a d - b c  \]
+\[= a(b - d) + c(b - d)\]
+\[= (a - c)\cdot(b - d)\]
+\[\implies (a b + c d) - (a d + b c) =  (a - c)\cdot(b - d)\]
+\[(a d + b c) =  (a b +  c d) - ((a - c)\cdot(b - d))\]
+\[(a d + b c) =  (a - c)x - ((a - c)\cdot(b - d))\]
+\[\implies (a d + b c) = (a - c)\cdot(x - b + d) \]
+
+By Closure property, $a - c | ab + c d$.
+hence, proved.
+
+
+
+\end{flushleft}
+
+
+\end{document}
