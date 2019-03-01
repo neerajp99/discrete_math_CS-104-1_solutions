@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 8}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\textbf{Q1: } Prove that $\sqrt{p}$ is an irrational number for any prime $p$.
+\newline
+\newline
+\textbf{Solution: } Let us consider $\sqrt{p}$ as rational.
+\newline
+Every rational number is of the form $\frac{a}{b}$
+\newline
+Squaring both the sides:
+\[ p = a^2 + b^2\]
+\[\implies a^2 = p \cdot b^2\]
+\[\implies b|a^2\]
+\newline
+Using the fundamental theorem of arithmetic, there exists a prime number $k$ which divides $b$.
+\newline
+If $x|b \tab[0.1cm]{}\text{then} x|a^2 \tab[0.1cm] \text{and if}\tab[0.1cm] x|a^2 \tab[0.1cm]\text{then}\tab[0.2cm] x|a$.
+\newline
+\newline
+$x|gcd(a, b) = 1$ is a contradiction unless b = 1 and a = 1.
+\newline
+\newline
+Now, if b=1, there is no integer for which $a^2 = p$ and same for a = 1.
+(where p is prime)
+\newline
+\newline
+Therefore, $\sqrt{p}$ is irrational.
+\newline
+\newline
+
+\end{flushleft}
+\begin{flushleft}
+\textbf{Q1: } Prove that $2^n \nmid n!$ for all $n \geq 1$.
+\newline
+\newline
+\textbf{Solution: } According to Fundamental Theorem of Arithmetic:
+\[n! = {2^{a_{1}}}\cdot{k_{2}^{k_{2}}}{.......}{k_{a}^{a_{a}}}\]
+where $k_{1}, k_{2}....k_{k}$ are prime divisors,
+\newline
+$a_{1}$ should be $\geq n$:
+\[ a_{1} = \small[\frac{n}{2}\small] + \small[\frac{n}{2^2}\small] + ....\]
+\[ \small[\frac{n}{2}\small] + \small[\frac{n}{4}\small] + .....\]
+\[< \frac{n}{2} \cdot \frac{1}{1-\frac{1}{2}}\]
+\[\implies < n\]
+\newline
+\newline
+Hence proved.
+\end{flushleft}
+
+
+
+
+
+\end{document}
