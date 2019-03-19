@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 11}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\textbf{Q1(a): } There are 10 telegrams and 2 messenger boys. In how many different ways can the telegrams be
+distributed to the messenger boys if the telegrams are distinguishable?
+\newline
+\newline
+\textbf{Solution: } Every telegram has has 2 messenger boys to choose from the given 10 telegrams. We need to find the number of subsets:
+\[ S = S_{1} x S_{2} .... x S_{10}\]
+\[\implies 2^{10}\]
+\newline
+So, there are $2^{10}$ different ways in which 10 telegrams can be distributed among the messenger boys.
+\newline
+\newline
+\textbf{Q1(b): } In how many different ways can the telegrams be distributed to the messenger boys and then
+delivered to 10 different people if the telegrams are distinguishable?
+\newline
+\newline
+
+\textbf{Solution: }$10$ telegrams of $n$ different ways can be distributed among 10 different boys in $n * 10!$ ways.
+As there are 2 boys among which these telegrams have to be distributed, so:
+\[2^{10} * 10!\]
+So, there are $2^{10} * 10!$ ways in which these telegrams can be distributed if the telegrams are distinguishable.
+\newline 
+\newline
+\textbf{Q1(c): } Solve (a) under the assumption that telegrams are indistinguishable.
+\newline
+\newline 
+A messenger can get either $0, 1, 2, 3.....,10$ telegrams if all telegrams are indistinguishable, which adds up to 11 ways.
+\newline
+\newline
+
+\textbf{Q2(a): } Find the sum of all 4-digit numbers that can be obtained by using the digits 2, 3, 5 and 7?
+\newline
+\newline
+\textbf{Solution: } As the number is a 4-digit, so we have 4 numbers. So, there are a total of $256$ different ways in which these 4 numbers can be represented.\\
+Also, these number can be in units, tens, hundreds or thousands:
+\[\implies 256/4 = 64\]
+\[= 17 * 6(64 + 17) * 64 * (10 + 17) * 64 * 1000\]
+\[= 1208768\]
+Therefore, the sum of all 4-digit numbers that can be obtained by using the digits 2, 3, 5 and 7 is 1208768.
+
+\textbf{Q2(b): } Find the sum of all 4-digit numbers that can be obtained by using the digits 2, 3, 5 and 7 and no digit is repeated?
+\newline
+\newline
+\textbf{Solution: } There are 4 numbers and no digit is repeated so, we have:
+\[4 * 3 * 2 * 1\]
+\[= 24 \text{ ways}\]
+Also, these number can be in units, tens, hundreds or thousands:
+\[\implies 3 * 2 * 1\]
+\[ = 6\]
+So, there are:
+\[17 * (6 + 17) * 6 * (10 + 17) * 6 * (100 + 17) * 6 * 1000\]
+\[= 113322\]
+
+Therefore, the sum of all 4-digit numbers that can be obtained by using the digits 2, 3, 5 and 7 and no digit
+is repeated is 113322.
+
+\end{flushleft} 
+\begin{flushleft}
+
+\end{flushleft}
+
+
+
+
+
+\end{document}
