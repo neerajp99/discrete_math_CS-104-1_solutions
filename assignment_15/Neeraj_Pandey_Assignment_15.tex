@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 15}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\textbf{Q1(a): }There are k kinds of the postcards, but only in a limited number of each, there being $a_{i}$ copies of the $i$th one. What is the number of possible ways of sending all of them to n friends? (We may send more than one copy of the same postcard to the same person. We many send different kinds of the postcard
+to the same person.)
+\newline
+
+\textbf{Solution: } $a_{i}$ denote the $i$th kind of postcards.(given)\\
+Let $y_{i}$ denote the number of ways in which $a_{i}$ postcards be distributed among $n$ friends.
+Let $x_{j}$ denote the number of postcards sent to the $j$th friend.There are a total of n friends.
+\newline
+\newline
+Therefore total number of possible ways of sending all of the $a_{i}$ postcards to n friends is the total number of solutions of the equation:
+\[x_{1} + x_{2} + ... + x_{n} = a_{i}\]
+So, total number of solutions will be:
+\[\begin{pmatrix}
+$a_{i} + n -1$ \\ $n-1$
+\end{pmatrix}\]
+\newline
+\newline
+let the total number of possible ways of postcards of $k$ kinds will be $Y$:
+$$\prod_{i=1}^{k} y_{i}$$
+\newline
+\newline
+$$\prod_{i=1}^{k} \begin{pmatrix}
+$a_{i} + n -1$ \\ $n-1$
+\end{pmatrix}$$
+
+\end{flushleft}
+\begin{flushleft}
+
+\textbf{Q2 :} Let $f : \small\{1, 2, \dots , m\small\} \implies \small\{1, 2, \dots , n\small\}$. How many f’s are possible which are monotonically (not strictly)
+increasing?
+\newline
+\newline
+\textbf{Solution: }
+Let us construct a set $D$ which contains the domain of the function $f : \small\{1, 2, ..., m\small\} \implies \small\{1, 2, ..., n\small\}$.
+Similarly, construct a set $C$ which contains the co-domain. $\therefore$ $|D|$ = $m$ and $|C|$ = $n$.
+So, all m elements of the domain map to m or less than m elements in the co-domain(because multiple elements
+from the domain can map to a single element in the co-domain.)
+\newline
+\newline
+
+Therefore, the number of monotonically increasing functions, $f : \small\{1, 2, ..., m\small\} \implies \small\{1, 2, ..., n\small\}$, is equal to the number of ways we can choose m elements from n with repetition.
+\begin{itemize}
+    \item Now, each m-combination of a set with $n$ elements when repetition is allowed can be represented by a list of $n − 1$ bars and m crosses.
+    \item  The n − 1 bars are used to mark off $n$ different cells, with the $i$th cell containing a cross for each time the $i$th element of the set occurs in the combination.
+    \item  For instance, a 6-combination of a set with four elements is represented with three bars and six crosses.
+    \item  As we have seen, each different list containing $n − 1$ bars and m crosses corresponds to an m-combination of the set with $n$ elements, when repetition is allowed. The number of such lists is \begin{pmatrix} $m+n-1$\\ $m$\end{pmatrix} , because list corresponds to a choice of the m positions to place the m crosses from the \begin{pmatrix} $m+n-1$\\ $m$\end{pmatrix} positions that contain $m$ crosses and $n − 1$ bars.
+    \item . The number of such lists is also equal to \begin{pmatrix} $m+n-1$\\ $m$\end{pmatrix}, because each list corresponds to a choice of the $n − 1$ positions to place the $n − 1$ bar.
+
+    \newline
+    \newline
+    .
+Hence, there are \begin{pmatrix} $m+n-1$\\ $m$\end{pmatrix} $f$’s possible which are monotonically increasing.
+
+
+\end{itemize}
+
+\end{flushleft}
+
+
+
+
+
+\end{document}
