@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 17}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+	\newcommand\tab[1][1cm]{\hspace*{#1}}
+	\textbf{Q1(a): }Prove using $PIE$, if $A,B$ and $C$ are finite sets, then
+	\[ | A_{1} \cup A_{2} \cup A_{3} | = | A_{1} | + | A_{2} | + | A_{3} | - | A_{1} \cap A_{2} | - | A_{2} \cap A_{3} | - | A_{1} \cap A_{3} | + | A_{1} \cap A_{2} \cap A_{3} | \]
+	\newline
+	\newline
+	\textbf{Solution: } \[ = |A_{1} \cup A_{2} \cup A_{3} |\]
+	\[= | \small( A_{1} \cup A_{2} \small) \cup A_{3} |\]
+	\[= | A_{1} \cup A_{2} | + | A_{3} | - | \small( A_{1} \cup A_{2} \small) \cap A_{3} |\]
+	\[= |A_{1}| + |A_{2}| - |A_{1} \cap A_{2}| + |A_{3}| - | \small( A_{1} \cap A_{3} \small) \cup\small( A_{2} \cap A_{3} \small)| \]
+	\[= |A_{1}| + |A_{2}| - |A_{1} \cap A_{2}| + A_{3} - \small[ |A_{1} \cap A_{3}| + |A_{2} \cap A_{3}| - |\small(A_{1} \cap A_{3} \small) \cap \small( A_{2} \cap A_{3}  \small)| \small]\]
+	\[\implies |A_{1}\ + |A_{2}| +A_{3}| - |A_{1} \cap A{2}| - |A_{2} \cap A_{3}| - |A_{1} \cap A_{3}| +| A_{1} \cap A_{2} \cap A_{3}|\]
+	\newline
+	\newline
+		
+	\textbf{Q1(b): }Prove using $PIE$, if $A_{1}, A_{2} \dots$ An are finite sets, then,
+	\newline
+	\newline
+	\[|A_{1}\cup  A_{2}\cup...\cup A_{n}|=\sum_{i} |A_{i}|-\sum_{i,j} |A_{i} \cap A_j| + \sum_{i,j,k}|A_{i} \cap A_{j} \cap A_{k}| - \enspace \cdots\cdots \enspace +(-1)^{n-1}|A_{1}\cap  A_{2}\cap \cdots \cap A_{n}|\]
+	\newline
+	\newline
+	\textbf{Solution: } 
+	We can take, \[P(n) :|\bigcup_{i=0}^{n}A_i|=\sum_{i} |A_i|-\sum_{i,j} |A_i \cap A_j| + \sum_{i,j,k}|A_i \cap A_j \cap A_k| - \enspace \cdots\cdots\enspace +(-1)^{n-1}|\bigcap_{i=0}^{n}A_i|\]
+		
+	\textbf{Base Case:} For $n=2$, we have, $|A_{1}\cup A_{2} | = |A_{1} | + | A_{2} | - | A_{1} \cap A_{2} |$, by PIE which implies$P(2)$.
+	\newline
+	\newline
+	\textbf{Taking the inductive step here: } We can assume that $P(r)$:
+	\[|\bigcup_{i=0}^{r}A_{i}| = \sum_{i} | A_{i} | - \sum_{i,j} | A_{i} \cap A_{j} | + \sum_{i,j,k} | A_{i} \cap A_{j} \cap A_{k}| - \enspace \cdots\cdots \enspace +(-1)^{r-1}|\bigcap_{i=0}^{r}A_{i}|\]
+	As $P(2)$, we have:
+	\begin{align*}
+		|\bigcup_{i=0}^{r+1} A_{i}| & =|(\bigcup_{i=0}^{r}A_{i})\bigcup A_{r+1}|                                    \\
+		                            & =|\bigcup_{i=0}^{r}A_{i}|+|A_{r+1}|-|(\bigcup_{i=0}^{r}A_{i})\bigcap A_{r+1}| 
+	\end{align*}
+		
+	Consider $|(\bigcup_{i=0}^{r}A_i)\bigcap A_{r+1}|$
+	\newline
+	\newline
+		
+	This can also be written as:
+		
+	$\left|\bigcup_{i=0}^{r}\left(A_i\cap A_{r+1}\right)\right|$
+	\newline
+	\newline
+	using inductive method:
+		
+		
+	\begin{align*}
+		|\bigcup_{i=0}^{r}(A_i\cap A_{r+1})|
+		  & =\sum_{i=1}^r(A_i \cap A_{r+1} )                                      
+		\newline
+		  & -\sum_{1\leq i < j \leq k}(A_i \cap A_j \cap A_{r+1})+\enspace \cdots 
+		\newline
+		\newline
+		  & +(-1)^{r-1}(\bigcap_{i=1}^r A_i \cap A_{r+1})                         
+	\end{align*}
+		
+	Therefore, we have:
+	\begin{align*}
+		  & \left|\bigcup_{i=0}^{r+1}A_i\right|=|A_{r+1}|+\left[ \sum_{i} |A_i|-\sum_{i,j} |A_i \cap A_j| + \sum_{i,j,m}|A_i \cap A_j \cap A_m| + \enspace . \enspace . \enspace . \enspace +(-1)^{r-1}\left|\bigcap_{i=0}^{r}A_i\right|\right] \\
+		  & - \left[\sum_{i=1}^r(A_i \cap A_{r+1} )                                                                                                                                                                                             
+		-\sum_{1\leq i < j \leq k}(A_i \cap A_j \cap A_{r+1})+...
+		+(-1)^{r-1}(\bigcap_{i=1}^r A_i \cap A_{r+1})\right]\\
+		  & =\sum_{i} |A_i|-\sum_{i,j} |A_i \cap A_j| + \sum_{i,j,k}|A_i \cap A_j \cap A_k| - \enspace . \enspace . \enspace . \enspace +(-1)^{r}|\bigcap_{i=0}^{r+1}A_i|                                                                       
+		\implies P(r+1)
+	\end{align*}
+	\newline
+	\newline
+		
+		
+\end{flushleft}
+
+\begin{flushleft}
+	    
+	\textbf{Q2(a): } Among the permutations of $\{1,2,\cdots,n\}$, there are some called de-arangements, in which none of the $n$ integers appears in its natural place. Thus, $(i_{1},i_{2},...,i_{n})$ is a de-rangement if $i_1\neq 1$, $i_2\neq 2$,..., and $i_n\neq n$.Let $D_n$ be the number of de-rangements of $\{1,2,...,n\}$.Prove that
+	\[D_n=n!\bigg[1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+...+\frac{(-1)^n}{n!}\bigg]\]
+	    
+	\newline
+	\newline
+	\textbf{Solution: }
+	Total number of permutations of $n$ objects is $n!$.
+	\newline
+	Let us assume, there are $N$ number of ways of arranging the objects in such a way that atleast one object goes to its right.
+	\newline
+	So, number of de-arrangerment will be: \[D_{n} = n! - N\]
+	\newline
+	\newline
+	Let $A_r$ be the set of permutations in which the $r^{th}$ object goes into its right position. Then,
+	\begin{align*}
+		N & =\Bigg|\bigcup_{r=1}^{n}A_r\Bigg|                                                                                                                                                                  
+		\newline
+		  & =\left[\sum_{i} | A_{i} |-\sum_{i,j} | A_{i} \cap A_{j} | + \sum_{i,j,k}| A_{i} \cap A_{j} \cap A_{k}| + \enspace \cdots\cdots \enspace +(-1)^n\left|\bigcap_{i=0}^{n}A_{i}\right|\enspace \right] 
+	\end{align*}
+	
+	Observe that $|A_i|=n-1!$, $|A_i\cap A_j|=n-2!$, and so on.
+	\newline
+	When we are ficing $k$ elemets, it requires permuting of the remaining terms. So,
+	\[\sum_{i_1,...,i_k}|(A_{i_1} \cap A_{i_2}  \cap. \enspace . \enspace .\cap A_{i_k})|=\binom{n}{k}(n-k)!\]
+	So the expression for $D_n$ reduces to,
+	\begin{align*}
+		D_n&=n!-\left[\binom{n}{1}(n-1)!-\binom{n}{2}(n-2)!+\enspace . \enspace . \enspace . \enspace +(-1)^n \binom{n}{n}(n-n)!\right]
+		\newline
+		\newline
+		\implies D_n & =\sum_{i=0}^{n}\binom{n}{i}(n-i)! \\\implies D_n&=\sum_{i=0}^n \dfrac{n!}{i!(n-i)!}\enspace(n-i)!\enspace=\enspace n!\sum_{i=0}^{n}\dfrac{1}{i!}\\
+		\implies D_n&=n!\left[1-\dfrac{1}{1!}+\dfrac{1}{2!}-\dfrac{1}{3!}+\enspace . \enspace . \enspace . \enspace + \dfrac{(-1)^n}{n!}\right]
+	\end{align*}
+\end{flushleft}
+\end{document}
