@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{ {./images/} }
+\usepackage[legalpaper, portrait, margin=0.9in]{geometry}
+\title{ASSIGNMENT 19}
+\author{Neeraj Pandey}
+\date{Discrete Mathematics}
+
+
+\begin{document}
+
+
+\maketitle
+\begin{flushleft}
+    \newcommand\tab[1][1cm]{\hspace*{#1}}
+    \textbf{Q1(a): } Solve the following recurrence relation by substitution.
+    \[ a_{n} = a_{n/2} + 2n - 1 \tab[0.1cm]\text{where}\tab[0.1cm]{} n=2^k \tab[0.1cm]\text{and}\tab[0.1cm] a_{1} = 1  \]
+    \newline
+    \newline
+    \textbf{Solution: }We have:
+    \begin{align*}
+        a_n           & =a_{n/2}+2n-1                   \\
+        a_{n/2}       & =a_{n/4}+2(n/2)-1               \\
+        a_{n/4}       & =a_{n/8}+2(n/4)-1               \\
+                      & .                               \\
+                      & .                               \\
+        a_{n/2^{k-1}} & =a_{n/2^k}+2(n/2^{k-1})-1       \\
+        a_{n/2^k}     & =a_1=1\enspace (\because n=2^k)
+    \end{align*}
+    Rearranging above equations we get,\\
+    \begin{align*}
+        a_n-a_{n/2}             & =2n-1           \\
+        a_{n/2}-a_{n/4}         & =2(n/2)-1       \\
+        a_{n/4}-a_{n/8}         & =2(n/4)-1       \\
+                                & .               \\
+                                & .               \\
+                                & .               \\
+        a_{n/2^{k-1}}-a_{n/2^k} & =2(n/2^{k-1})-1 \\
+        a_{n/2^k}               & =1
+    \end{align*}
+    Summing all the equations we have,\\
+    \begin{align*}
+        a_n & =2n-1+2(n/2)-1+2(n/4)-1+...+2(n/2^{k-1})-1+1                                        \\
+            & =2n(1+1/2+1/4+...+1/2^{k-1})-k+1                                                    \\
+            & =2n(\frac{1-(1/2)^k}{1-(1/2)})-k+1                                                  \\
+            & =2n2(\frac{2^k-1}{2^k})-k+1                                                         \\
+            & =4n(\frac{n-1}{n})-log_2n+1\enspace (\because n=2^k \enspace and \enspace k=log_2n) \\
+            & =4n-log_2n-3                                                                        \\
+    \end{align*}
+    $$\therefore a_n=4n-log_2n-3$$
+
+
+    \begin{theorem}
+       \textbf{Solution (b): } Solve the following recurrence relation by substitution:\\
+        $$a_n-7a_{n/3}=2n \enspace where \enspace n=3^k \enspace for \enspace k\geq1 \enspace and \enspace a_1=\frac{5}{2}$$
+    \end{theorem}
+    \begin{align*}
+        a_n                  & =7a_{n/3}+2n                                   \\
+        7a_{n/3}             & =7^2a_{n/3^2}+(7)2(n/3)                        \\
+        7^2a_{n/3^2}         & =7^3a_{n/3^3}+(7^2)2(n/3^2)                    \\
+                             & .                                              \\
+                             & .                                              \\
+                             & .                                              \\
+        7^{k-1}a_{n/3^{k-1}} & =7^ka_{n/3^k}+(7^{k-1})2(n/3^{k-1})            \\
+        7^{k}a_{n/3^k}       & =a_1=7^k(\frac{5}{2})\enspace (\because n=3^k)
+    \end{align*}
+    Rearranging above equations we get,\\
+    \begin{align*}
+        a_n-7a_{n/3}                      & =2n                    \\
+        7a_{n/3}-7^2a_{n/3^2}             & =(7)2(n/3)             \\
+        7^2a_{n/3^2}-7^3a_{n/3^3}         & =(7^2)2(n/3^2)         \\
+                                          & .                      \\
+                                          & .                      \\
+                                          & .                      \\
+        7^{k-1}a_{n/3^{k-1}}-7^ka_{n/3^k} & =(7^{k-1})2(n/3^{k-1}) \\
+        7^{k}a_{n/3^k}                    & =7^k(\frac{5}{2})
+    \end{align*}
+    Summing all the equations we have,\\
+    \begin{align*}
+        a_n & =2n+(7)2(n/3)+(7^2)2(n/3^2)+...+(7^{k-1})2(n/3^{k-1})+7^k(\frac{5}{2})                                                 \\
+            & =2n(1+7/3+7^2/3^2+...+7^{k-1}/3^{k-1})+7^k(\frac{5}{2})                                                                \\
+            & =2n(\frac{1-(7/3)^k}{1-(7/3)})+7^k(\frac{5}{2})                                                                        \\
+            & =2n\frac{3}{-4}(\frac{3^k-7^k}{3^k})+7^k(\frac{5}{2})                                                                  \\
+            & =\frac{-3}{2}n(\frac{n-7^{log_3n}}{n})+7^{log_3n}(\frac{5}{2})\enspace (\because n=3^k \enspace and \enspace k=log_3n) \\
+            & =\frac{-3n+(8)7^{log_3n}}{2}                                                                                           \\
+            & =\frac{-3n}{2}+(4)7^{log_3n}
+    \end{align*}
+    $$\therefore a_n=\frac{-3n}{2}+(4)7^{log_3n}$$
+    \begin{theorem}
+        \textbf{Solution 2(a): }Solve the following recurrence relation by generating functions:\\
+        $$a_n-6a_{n-1}+8a_{n-2}=n4^n\enspace where \enspace a_0=8\enspace and \enspace a_1=22$$
+    \end{theorem}
+    Let $A(X)=\sum_{n=0}^{\infty}a_nX_n$ be the generating function for sequence $\{a_n\}_{n=0}^{\infty}$. Then note that\\
+    \begin{align*}
+        A(X)     & =a_0+a_1X+a_2X^2+a_3X^3+...+a_nX^n+...       \\
+        6XA(X)   & =6a_0X+6a_1X^2+6a_2X^3+...+6a_nX^{n+1}+...   \\
+        8X^2A(X) & =8a_0X^2+8a_1X^3+8a_2X^4+...+8a_nX^{n+2}+... \\
+    \end{align*}
+    Thus,\\
+    \begin{align*}
+        (1-6X+8X^2)A(X) & =a_0+(a_1-6a_0)X+(a_2-6a_1+8_0)X^2                                                                                 \\
+                        & +(a_3-6a_2+8_a1)X^3+...+(a_n-6_{n-1}+8_{n-2})X^n+...                                                               \\
+                        & =a_0+(a_1-6a_0)X+\sum_{n=2}^{\infty}n4^nX^n                                                                        \\
+                        & =a_0+(a_1-6a_0)X+\sum_{n=2}^{\infty}n(4X)^n                                                                        \\
+                        & =a_0+(a_1-6a_0)X+4X\sum_{n=2}^{\infty}n(4X)^{n-1}                                                                  \\
+                        & =a_0+(a_1-6a_0)X+4X\sum_{n=2}^{\infty}(n(4X)^{n-1}+1-1)                                                            \\
+                        & =a_0+(a_1-6a_0)X-4X+4X\sum_{n=2}^{\infty}(n(4X)^{n-1}+1)                                                           \\
+                        & =a_0+(a_1-6a_0)X-4X+\frac{4X}{(1-4X)^2}                                                                            \\
+        \implies A(X)   & =\frac{a_0+(a_1-6a_0)X-4X}{(1-6X+8X^2)}+\frac{4X}{(1-4X)^2(1-6X+8X^2)}                                             \\
+                        & =\frac{a_0+(a_1-6a_0)X-4X}{(1-2x)(1-4X)}+\frac{4X}{(1-4X)^3(1-2X)}                                                 \\
+                        & =\frac{8+(22-6(8))X-4X}{(1-2x)(1-4X)}+\frac{4X}{(1-4X)^3(1-2X)}\enspace(\because a_0=8\enspace and\enspace a_1=22) \\
+                        & =\frac{8-30X}{(1-2x)(1-4X)}+\frac{4X}{(1-4X)^3(1-2X)}
+    \end{align*}
+    Applying partial fraction decomposition on both the terms separately, we have\\
+    $$\frac{8-30X}{(1-2x)(1-4X)}=\frac{7}{1-2X}+\frac{1}{1-4X}$$
+    $$\frac{4X}{(1-4X)^3(1-2X)}=\frac{-2}{1-2X}+\frac{4}{1-4X}+\frac{-4}{(1-4X)^2}+\frac{2}{(1-4X)^3}$$
+    Thus,\\
+    \begin{align*}
+        A(X) & =\frac{7}{1-2X}+\frac{1}{1-4X}+\frac{-2}{1-2X}+\frac{4}{1-4X}+\frac{-4}{(1-4X)^2}+\frac{2}{(1-4X)^3}                                                                            \\
+             & =\frac{5}{1-2X}+\frac{5}{1-4X}+\frac{-4}{(1-4X)^2}+\frac{2}{(1-4X)^3}                                                                                                           \\
+             & =5\sum_{n=0}^{\infty}\binom{1-1+n}{n}2^nX^n+5\sum_{n=0}^{\infty}\binom{1-1+n}{n}4^nX^n+(-4)\sum_{n=0}^{\infty}\binom{2-1+n}{n}4^nX^n+2\sum_{n=0}^{\infty}\binom{3-1+n}{n}4^nX^n \\
+             & =5\sum_{n=0}^{\infty}2^nX^n+5\sum_{n=0}^{\infty}4^nX^n+(-4)\sum_{n=0}^{\infty}(n+1)4^nX^n+2\sum_{n=0}^{\infty}\frac{(2+n)(1+n)}{2}4^nX^n                                        \\
+             & =\sum_{n=0}^{\infty}\bigg[2^n(5+2^n(n^2-n+3))\bigg]X^n                                                                                                                          \\
+             & =\sum_{n=0}^{\infty}a_nX^n                                                                                                                                                      \\
+    \end{align*}
+    Hence,
+    $$a_n=2^n(5+2^n(n^2-n+3))$$
+    \begin{theorem}
+        \textbf{Solution 2(b): }Solving the following recurrence relation by generating functions:\\
+        $$a_n-5a_{n-1}+6a_{n-2}=n^24^n\enspace for \enspace n\geq 2$$
+    \end{theorem}
+    Let $A(X)=\sum_{n=0}^{\infty}a_nX_n$ be the generating function for sequence $\{a_n\}_{n=0}^{\infty}$. Then note that\\
+    \begin{align*}
+        A(X)     & =a_0+a_1X+a_2X^2+a_3X^3+...+a_nX^n+...       \\
+        5XA(X)   & =5a_0X+5a_1X^2+5a_2X^3+...+5a_nX^{n+1}+...   \\
+        6X^2A(X) & =6a_0X^2+6a_1X^3+6a_2X^4+...+6a_nX^{n+2}+... \\
+    \end{align*}
+    Thus,\\
+    \begin{align*}
+        (1-5X+6X^2)A(X) & =a_0+(a_1-5a_0)X+(a_2-5a_1+6_0)X^2                                                                                                                                                \\
+                        & +(a_3-5a_2+6a_1)X^3+...+(a_n-5_{n-1}+6_{n-2})X^n+...                                                                                                                              \\
+                        & =a_0+(a_1-5a_0)X+\sum_{n=2}^{\infty}(n^2+n-n)4^nX^n                                                                                                                               \\
+                        & =a_0+(a_1-5a_0)X+\sum_{n=2}^{\infty}(n^2-n)4^nX^n+\sum_{n=2}^{\infty}n4^nX^n                                                                                                      \\
+                        & =a_0+(a_1-5a_0)X+\sum_{n=2}^{\infty}(n(n-1))4^nX^n-4X+\frac{4X}{(1-4X)^2}                                                                                                         \\
+                        & =a_0+(a_1-5a_0)X+\frac{32X^2}{(1-4X)^3}-4X+\frac{4X}{(1-4X)^2}                                                                                                                    \\
+        \implies A(X)   & =\frac{a_0+(a_1-5a_0)X-4X}{(1-5X+6X^2)}+\frac{32X^2}{(1-5X+6X^2)(1-4X)^3}+\frac{4X}{(1-5X+6X^2)(1-4X)^2}                                                                          \\
+                        & =\frac{a_0+(a_1-5a_0)X-4X}{(1-2X)(1-3X)}+\frac{32X^2}{(1-2X)(1-3X)(1-4X)^3}+\frac{4X}{(1-2X)(1-3X)(1-4X)^2}                                                                       \\\\
+                        & Applying\enspace partial \enspace fraction\enspace decomposition:                                                                                                                 \\
+                        & =\frac{C_1}{1-2X}+\frac{C_2}{1-3X}+\frac{C_3}{1-4X}+\frac{C_4}{(1-4X)^2}+\frac{C_5}{(1-4X)^3}                                                                                     \\
+                        & =C_1\sum_{n=0}^{\infty}2^nX^n+C_2\sum_{n=0}^{\infty}3^nX^n+C_3\sum_{n=0}^{\infty}4^nX^n+C_4\sum_{n=0}^{\infty}\binom{2-1+n}{n}4^nX^n+C_5\sum_{n=0}^{\infty}\binom{3-1+n}{n}4^nX^n \\
+                        & =\sum_{n=0}^{\infty}\bigg[C_12^n+C_23^n+\Big(C_3+C_4(n+1)+C_5\frac{(2+n)(1+n)}{2}\Big)4^n\bigg]X^n                                                                                \\
+                        & =\sum_{n=0}^{\infty}\bigg[C_12^n+C_23^n+\Big(C_3+C_4n+C_4+C_5\frac{n^2+3n+2}{2}\Big)4^n\bigg]X^n                                                                                  \\
+                        & =\sum_{n=0}^{\infty}\bigg[C_12^n+C_23^n+\Big(D_1+D_2n+D_3n^2\Big)4^n\bigg]X^n                                                                                                     \\
+                        & =\sum_{n=0}^{\infty}a_nX^n                                                                                                                                                        \\
+    \end{align*}
+    Hence,\\
+    \[a_{n}=C_{1}2^n+C_{2}3^n+\Big(D_{1}+D_{2}n+D_{3}n^2\Big)4^n\]
+\end{flushleft}
+
+
+\end{document}
